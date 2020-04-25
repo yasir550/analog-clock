@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Analog Clock</title>
+</head>
+<body>
+     
+    <!-- clock -->
+    <div class="clock">
+        <!-- dial -->
+       <div class="dial">
+
+        <div class="needle hours"></div>
+
+        <div class="needle minutes"></div>
+        
+        <div class="needle seconds"></div>
+
+        <div class="number number1">1</div>
+            <div class="number number2">2</div>
+            <div class="number number3">3</div>
+            <div class="number number4">4</div>
+            <div class="number number5">5</div>
+            <div class="number number6">6</div>
+            <div class="number number7">7</div>
+            <div class="number number8">8</div>
+            <div class="number number9">9</div>
+            <div class="number number10">10</div>
+            <div class="number number11">11</div>
+            <div class="number number12">12</div>
+       </div>
+
+       <!-- dial -->
+       <!-- dot -->
+       <div class="dot"></div>
+       <!-- dot -->
+    </div>
+    <!-- clock -->
+
+    <!-- script starts from here -->
+    <script>
+
+        // function to set time intervel for function to call itself again and again
+      setInterval(time, 1000);
+
+    //   function that displays clock working
+      function time(){
+
+      var sec = document.querySelector(".seconds");
+      var date = new Date();
+      var new_seconds = date.getSeconds();
+      var n_sec = (new_seconds/60)*360+90;
+      sec.style.transform = `rotate(${n_sec}deg)`;
+
+      var min = document.querySelector(".minutes");
+      var new_min = date.getMinutes();
+      var new_minutes = (new_min/60)*360+90;
+      min.style.transform = `rotate(${new_minutes}deg)`;
+
+      var hrs = document.querySelector(".hours");
+      var new_hrs = date.getHours();
+      var new_hours = (new_hrs/12)*360+90+(0.5*new_min);
+      hrs.style.transform = `rotate(${new_hours}deg)`;
+      }
+      
+
+    </script>
+    
+</body>
+</html>
